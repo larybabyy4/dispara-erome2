@@ -5,12 +5,12 @@ import subprocess
 from collections import deque
 
 # Telegram configuration
-API_ID = 26968169
-API_HASH = '5768aedba5732b11a1288965b57472e7'
-PHONE_NUMBER = '+5516982194939'
+API_ID = 29908657
+API_HASH = '84c6469e3aecab7e85b2665bdd91ee9a'
+PHONE_NUMBER = '+5516981184516'
 
 # Target chat ID
-CHAT_ID = -1002462947693
+CHAT_ID = -1002359501336
 
 # Configurações personalizadas
 ADD_TEXT = True  # True para adicionar texto com ffmpeg, False para desativar
@@ -19,7 +19,7 @@ SEND_VIDEOS = True  # True para enviar vídeos
 
 # Text to overlay (se ADD_TEXT for True)
 TEXT_LINE1 = "DraLarissa.github.io"
-TEXT_LINE2 = "+"
+TEXT_LINE2 = ""
 
 # Queues for parallel processing
 download_queue = asyncio.Queue()
@@ -114,7 +114,7 @@ async def send_worker():
             if os.path.exists(file_path):
                 os.remove(file_path)
             
-            await asyncio.sleep(30)  # Rate limit protection
+            await asyncio.sleep(150)  # Rate limit protection
             send_queue.task_done()
         except Exception as e:
             print(f"Send error: {e}")
